@@ -20,10 +20,13 @@ database.on("error", (error) => {
 database.once("connected", () => {
   console.log("Database Connected");
 });
+
 app.get("/", (req, res) => {
   res.send("hello World");
 });
+
 app.use("/api", routes);
+
 app.listen(port, () => {
   console.log("Listenting on port 5000");
 });

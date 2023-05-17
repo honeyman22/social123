@@ -9,11 +9,6 @@ const dataSchema = new mongoose.Schema({
     required: true,
     type: Number,
   },
-
-  products:[{
-    name:{type:String},
-    price:{type:Number}
-  }]
 });
 
 module.exports = mongoose.model("Data", dataSchema);
