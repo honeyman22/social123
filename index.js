@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes/routes");
+const teamRouter = require("./routes/our-teams/index");
+const isBossMiddleware = require("./middleware/boss");
 const app = express();
 const port = 5000;
 require("dotenv").config();
@@ -21,11 +23,12 @@ database.once("connected", () => {
   console.log("Database Connected");
 });
 
-app.get("/", (req, res) => {
+app.get("/", isBossMiddleware, (req, res) => {
   res.send("hello World");
 });
 
 app.use("/api", routes);
+app.use("/api/teama", teamRouter);
 
 app.listen(port, () => {
   console.log("Listenting on port 5000");

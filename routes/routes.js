@@ -3,7 +3,9 @@ const express = require("express");
 const router = express.Router();
 const Model = require("../models/model");
 const UserModal = require("../models/User");
+
 module.exports = router;
+
 //Post Method
 router.get("/info", (req, res) => {
   res.json({
